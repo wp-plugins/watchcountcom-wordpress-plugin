@@ -30,21 +30,13 @@ If you have an **ePN** account and a blog on your own domain, you can potentiall
 In addition to the features and services presented above, the WCCWPPI includes some other handy things:
 
 * **embedded search box** for visitor-selected search words: have the plugin display refresh itself with updated results, or send the visitor right to eBay
-
 * strong **international** eBay site support (with more countries being added soon) including all 4 [eBay Daily Deal](http://www.WatchCount.com/go/?link=wp_i_edd "eBay Daily Deals") country-sites
-
 * plugin displays with **localized language** (selected by blogger)
-
 * a variety of **backgrounds/skins** to choose from (with more being added)
-
 * skip keywords and display the **Most Watched Items** across an entire eBay site
-
 * display a customizable **informational message** within the plugin to help your readers
-
 * comprehensive configuration screen, including **live preview**
-
 * text **customization** options
-
 * **no programming**/scripting experience needed; setup done via standard WP plugin installation steps
 
 **What else should I know about the WCCWPPI?**
@@ -67,9 +59,11 @@ Check out sample screenshots [here on our website](http://www.WatchCount.com/go/
 
 == Installation ==
 
+= Installation =
+
 On our website you'll find easy, step-by-step [Quick Start Instructions](http://www.WatchCount.com/go/?link=wp_i_pi_qs "WCCWPPI Quick Start Instructions").
 
-== :: Critical Updates :: ==
+= Critical Updates =
 
 If you use our plugin, please be sure to join our [WCCWPPI Notification Alerts list](http://www.WatchCount.com/go/?link=wp_i_pi_alerts "Get notified about important WCCWPPI information...") so we can email you about critical updates and information. (Don't worry - we're not spammers, and we hate junk mail as much as you do.)
 
