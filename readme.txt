@@ -3,7 +3,7 @@ Contributors: WatchCount.com
 Requires at least: 2.6
 Tested up to: 2.8.6
 Stable tag: trunk
-Tags: WatchCount.com, WordPress, eBay, ePN, eBay Partner Network, watch count, free, no cost, auction, auctions, most popular, most watched, items, item, categories, category, bidding, eBay Pulse, eBay Daily Deal, eBay Daily Deals, The Big Deal, Wow des Tages, Wow Angebote, Wow Auktionen, shopping, seller, sellers, post, posts, post tag, post tags, sidebar, widget, sidebar widget, ad, ads, advertising, advertise, tag, tags, shortcode, RSS, affiliate, affiliates, make money, money, income, commission, commissions, content, links, admin, automatic, sales, plugin, international, wordpres, worldpress, WCCWPPI
+Tags: WatchCount.com, WordPress, eBay, ePN, eBay Partner Network, watch count, free, no cost, auction, auctions, most popular, most watched, items, item, categories, category, bidding, eBay Pulse, eBay Daily Deal, eBay Daily Deals, The Big Deal, Wow des Tages, Wow Angebote, Wow Auktionen, shopping, seller, sellers, post, posts, post tag, post tags, sidebar, widget, sidebar widget, ad, ads, advertising, advertise, tag, tags, shortcode, RSS, affiliate, affiliates, make money, money, income, commission, commissions, content, links, admin, automatic, sales, plugin, international, wordpres, worldpress, WCCWPPI, WatchCount, watch count
 
 The WatchCount.com WordPress Plugin is a free eBay WordPress plugin that displays Most Popular eBay items in a sidebar widget or within blog posts.
 
