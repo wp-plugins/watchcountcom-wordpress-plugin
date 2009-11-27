@@ -9,7 +9,7 @@ The WatchCount.com WordPress Plugin is a free eBay WordPress plugin that display
 
 == Description ==
 
-The WatchCount.com WordPress Plugin (WCCWPPI) is a **free** eBay WordPress plugin that displays Most Popular eBay items and auctions in real-time -- in your blog's **sidebar** (a 'WordPress Widget') and/or within individual blog posts.
+The WatchCount.com WordPress Plugin (WCCWPPI) is a **free** eBay WordPress plugin that displays Most Popular eBay items and auctions in real-time -- in your blog's sidebar (a *WordPress Widget*) and/or within individual blog posts.
 
 Items displayed have been voted on by both eBay shoppers and sellers and ranked accordingly: compared to the millions of eBay listings active at any given moment, our plugin features ones that reflect an actual, **cumulative interest** by registered eBay users! Your blog's visitors can click through to these compelling items listed live on eBay.
 
