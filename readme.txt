@@ -9,7 +9,7 @@ The WatchCount.com WordPress Plugin is a free eBay WordPress plugin that display
 
 == Description ==
 
-The WatchCount.com WordPress Plugin (WCCWPPI) is a free eBay WordPress plugin that displays Most Popular eBay items and auctions in real-time -- in your blog's **sidebar** (a 'WordPress Widget') and/or within individual blog posts.
+The WatchCount.com WordPress Plugin (WCCWPPI) is a **free** eBay WordPress plugin that displays Most Popular eBay items and auctions in real-time -- in your blog's **sidebar** (a 'WordPress Widget') and/or within individual blog posts.
 
 Items displayed have been voted on by both eBay shoppers and sellers and ranked accordingly: compared to the millions of eBay listings active at any given moment, our plugin features ones that reflect an actual, **cumulative interest** by registered eBay users! Your blog's visitors can click through to these compelling items listed live on eBay.
 
@@ -17,11 +17,11 @@ You can select keyword phrases and eBay categories as the basis of the displayed
 
 This plugin is created and powered by WatchCount.com, an [eBay Compatible Application](http://www.WatchCount.com/go/?link=wp_i_cac "WatchCount.com is an eBay Compatible Application.") and recipient of a [2009 eBay Star Developer Award](http://www.WatchCount.com/go/?link=wp_i_award "WatchCount.com was a recipient of a 2009 eBay Star Developer Award.").
 
-(Click the *Screenshots* link up above for screenshots and a live demo blog of the WCCWPPI.)
+(Click the *Screenshots* link up above for sample images as well as a live demo blog of the WCCWPPI.)
 
 = Who might want to use the WCCWPPI? =
 
-Niche bloggers may like to showcase interesting products –- items that actual eBay users have voted as most popular -– to their readership, knowing that eBay, with its extensive and varied marketplace, is an easy place to locate appealing items in almost any category (iPods, real estate, paperweights, bubble wrap...). By specifying just a few keywords or **post tags**, continuously updated, in-demand items can be displayed to your audience.
+Niche bloggers may like to showcase interesting products to their readership –- items that actual eBay users have voted as most popular -– knowing that eBay, with its extensive and varied marketplace, is an easy place to locate appealing items in almost any category (iPods, real estate, collectible coins, giant bubble wrap...). By specifying just a few keywords or **post tags**, continuously updated, in-demand items can be displayed to your audience.
 
 You can also have the WCCWPPI display any specific eBay item, such as if you're an **eBay seller** blogging about a newly listed item. Moreover, if you're a fan of the famed [eBay Daily Deals](http://www.WatchCount.com/go/?link=wp_i_edd "eBay Daily Deals"), you can opt to display those as well.
 
@@ -38,7 +38,7 @@ In addition to the features and services presented above, the WCCWPPI includes s
 * skip keywords and display the **Most Watched Items** across an entire eBay site
 * display a customizable **informational message** within the plugin to help your readers
 * comprehensive configuration screen, including **live preview**
-* text **customization** options
+* text/label **customization** options
 * **no programming**/scripting experience needed; setup done via standard WP plugin installation steps
 
 = What else should I know about the WCCWPPI? =
@@ -49,7 +49,7 @@ In addition to the features and services presented above, the WCCWPPI includes s
 * Comprehensive information about this plugin (including FAQ, live demo blog, screenshots, and documentation) is located [on our website](http://www.WatchCount.com/go/?link=wp_i_pi "WCCWPPI information at WatchCount.com...").
 * **=> Already using** our plugin? Please consider taking a quick moment to rate it -- see the right sidebar up above (thanks so much!).
 
-. . . [**\[:: DOWNLOAD ::\]**](http://www.WatchCount.com/go/?link=wp_download "Download the WatchCount.com WordPress Plugin...") the WatchCount.com WordPress Plugin now! . . .
+. . . . [**\[:: DOWNLOAD ::\]**](http://www.WatchCount.com/go/?link=wp_download "Download the WatchCount.com WordPress Plugin...") the WatchCount.com WordPress Plugin now! . . . .
 
 == Screenshots ==
 
@@ -69,7 +69,7 @@ On our website you'll find easy, step-by-step [Quick Start Instructions](http://
 
 = Critical Updates =
 
-If you use our plugin, please be sure to join our [WCCWPPI Notification Alerts list](http://www.WatchCount.com/go/?link=wp_i_pi_alerts "Get notified about important WCCWPPI information...") so we can email you about critical updates and information. (Don't worry - we're not spammers, and we hate junk mail as much as you do.)
+If you use our plugin, please be sure to join our [WCCWPPI Notification Alerts list](http://www.WatchCount.com/go/?link=wp_i_pi_alerts "Get notified about important WCCWPPI information...") so we can email you about critical updates and information. (Don't worry - we're not spammers and we hate junk mail as much as you do.)
 
 = Support =
 
@@ -77,7 +77,7 @@ Once installed, the WCCWPPI Admin/Settings page contains detailed configuration 
 
 [On our website](http://www.WatchCount.com/go/?link=wp_i_pi "WCCWPPI information at WatchCount.com...") you'll find comprehensive information about this plugin, including [Quick Start Instructions](http://www.WatchCount.com/go/?link=wp_i_pi_qs "WCCWPPI Quick Start Instructions"), an extensive FAQ, and documentation.
 
-You may also wish to visit our [mini-forum](http://www.WatchCount.com/go/?link=wp_gcwccwppi "Get support on our 'mini-forum'...") (Global Conversations page) with your questions and comments –- just login to post with an account you probably already have.
+You may also wish to visit our [mini-forum](http://www.WatchCount.com/go/?link=wp_gcwccwppi "Get support on our 'mini-forum'...") (Global Conversations page) with your questions and comments –- just login to post with a Google/Yahoo!/AIM/OpenID account you already have.
 
 == Changelog ==
 
