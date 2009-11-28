@@ -49,7 +49,7 @@ In addition to the features and services presented above, the WCCWPPI includes s
 * Comprehensive information about this plugin (including FAQ, live demo blog, screenshots, and documentation) is located [on our website](http://www.WatchCount.com/go/?link=wp_i_pi "WCCWPPI information at WatchCount.com...").
 * **=> Already using** our plugin? Please consider taking a quick moment to rate it -- see the right sidebar up above (thanks so much!).
 
-. . . . [**\[:: DOWNLOAD ::\]**](http://www.WatchCount.com/go/?link=wp_download "Download the WatchCount.com WordPress Plugin...") the WatchCount.com WordPress Plugin now! . . . .
+**Download** the WatchCount.com WordPress Plugin now: Just click the red *Download* button up top (or the red *Install Now* button if you're reviewing this from an in-blog plugin search). ...We'll look forward to seeing you on the other side! :-)
 
 == Screenshots ==
 
