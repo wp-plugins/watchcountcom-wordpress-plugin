@@ -34,7 +34,7 @@ In addition to the features and services presented above, the WCCWPPI includes s
 * **embedded search box** for visitor-selected search words: have the plugin display refresh itself with updated results, or send the visitor right to eBay
 * strong **international** eBay site support (with more countries being added soon) including all 4 [eBay Daily Deal](http://www.WatchCount.com/go/?link=wp_i_edd "eBay Daily Deals") country-sites
 * plugin displays with **localized language** (selected by blogger)
-* a variety of **backgrounds/skins** to choose from (with more being added)
+* a variety of **backgrounds/skins** to choose from (with more being added), or select any background color instead
 * skip keywords and display the **Most Watched Items** across an entire eBay site
 * display a customizable **informational message** within the plugin to help your readers
 * comprehensive configuration screen, including **live preview**
