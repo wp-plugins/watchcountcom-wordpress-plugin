@@ -40,6 +40,7 @@ In addition to the features and services presented above, the WCCWPPI includes s
 * comprehensive configuration screen, including **live preview**
 * text/label **customization** options
 * **no programming**/scripting experience needed; setup done via standard WP plugin installation steps
+* eBay items appear seamlessly within your blog pages (no Javascript or Flash), contributing to the **SEO value** of your website
 
 = What else should I know about the WCCWPPI? =
 
