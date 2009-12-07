@@ -3,7 +3,7 @@ Contributors: WatchCount.com
 Requires at least: 2.6
 Tested up to: 2.8.6
 Stable tag: trunk
-Tags: WatchCount.com WordPress Plugin, WatchCount.com, WordPress, eBay, ePN, eBay Partner Network, watch count, free, no cost, auction, auctions, most popular, most watched, items, item, categories, category, bidding, eBay Pulse, eBay Daily Deal, eBay Daily Deals, The Big Deal, Wow des Tages, Wow Angebote, Wow Auktionen, shopping, seller, sellers, store, stores, post, posts, post tag, post tags, sidebar, widget, sidebar widget, ad, ads, advertising, advertise, tag, tags, shortcode, RSS, affiliate, affiliates, make money, money, income, commission, commissions, content, links, admin, automatic, sales, plugin, international, wordpres, worldpress, WCCWPPI, WatchCount, watch count, WCC WP Plugin, SEO
+Tags: WatchCount.com WordPress Plugin, WatchCount.com, WordPress, eBay, ePN, eBay Partner Network, watch count, free, no cost, auction, auctions, most popular, most watched, items, item, categories, category, bidding, eBay Pulse, eBay Daily Deal, eBay Daily Deals, The Big Deal, Wow des Tages, Wow Angebote, Wow Auktionen, shopping, seller, sellers, store, stores, shop, shops, post, posts, post tag, post tags, sidebar, widget, sidebar widget, ad, ads, advertising, advertise, tag, tags, shortcode, RSS, affiliate, affiliates, make money, money, income, commission, commissions, content, links, admin, automatic, sales, plugin, international, wordpres, worldpress, WCCWPPI, WatchCount, watch count, WCC WP Plugin, SEO
 
 The WatchCount.com WP Plugin is a free eBay WordPress plugin that shows Most Popular eBay items (or a seller's items) in a blog's sidebar or posts.
 
@@ -23,7 +23,7 @@ This plugin is created and powered by WatchCount.com, an [eBay Compatible Applic
 
 Niche bloggers may like to showcase interesting products to their readership –- items that actual eBay users have voted as most popular -– knowing that eBay, with its extensive and varied marketplace, is an easy place to locate appealing items in almost any category (iPods, real estate, collectible coins, giant bubble wrap...). By specifying just a few keywords or **post tags**, continuously updated, in-demand items can be displayed to your audience.
 
-**eBay sellers** who blog might also enjoy the ability to showcase their products, whether tacitly in their blog's sidebar, or more overtly &#8211; embedded within posts. The WCCWPPI can also display any specific eBay item, good for directing readers' attention to a newly listed item. Moreover, if you're a fan of the famed [eBay Daily Deals](http://www.WatchCount.com/go/?link=wp_i_edd "eBay Daily Deals"), you can opt to display those as well.
+**eBay sellers** who blog might also enjoy the ability to showcase their products, whether tacitly in their blog's sidebar, or more overtly -- embedded within posts. The WCCWPPI can also display any specific eBay item, good for directing readers' attention to a newly listed product. Moreover, if you're a fan of the famed [eBay Daily Deals](http://www.WatchCount.com/go/?link=wp_i_edd "eBay Daily Deals"), you can opt to display those as well.
 
 If you have an **ePN** account and a blog on your own domain, you can potentially make money by generating affiliate commissions when your visitors click through to eBay then make purchases.
 
@@ -39,6 +39,7 @@ In addition to the features and services presented above, the WCCWPPI includes s
 * display a customizable **informational message** within the plugin to help your readers
 * comprehensive configuration screen, including **live preview**
 * text/label **customization** options
+* for seller's items, **eBay Stores/Shops** inventory is also included
 * **no programming**/scripting experience needed; setup done via standard WP plugin installation steps
 * eBay items appear seamlessly within your blog pages (no Javascript or Flash), contributing to the **SEO value** of your website
 
@@ -54,7 +55,7 @@ In addition to the features and services presented above, the WCCWPPI includes s
 
 Just click the red *Download* button up top (or the red *Install Now* button if you're reviewing this from an in-blog plugin search).
 
-...We'll look forward to seeing you on the other side! :-)
+...We look forward to seeing you on the other side! :-)
 
 == Screenshots ==
 
