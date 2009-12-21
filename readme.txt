@@ -1,7 +1,7 @@
 === WatchCount.com WordPress Plugin ===
 Contributors: WatchCount.com
 Requires at least: 2.6
-Tested up to: 2.8.6
+Tested up to: 2.9
 Stable tag: trunk
 Tags: WatchCount.com WordPress Plugin, WatchCount.com, WordPress, eBay, ePN, eBay Partner Network, watch count, free, no cost, auction, auctions, most popular, most watched, items, item, categories, category, bidding, eBay Pulse, eBay Daily Deal, eBay Daily Deals, The Big Deal, Wow des Tages, Wow Angebote, Wow Auktionen, shopping, seller, sellers, store, stores, shop, shops, post, posts, post tag, post tags, sidebar, widget, sidebar widget, ad, ads, advertising, advertise, tag, tags, shortcode, RSS, affiliate, affiliates, make money, money, income, commission, commissions, content, links, admin, automatic, sales, plugin, international, wordpres, worldpress, WCCWPPI, WatchCount, watch count, WCC WP Plugin, SEO
 
@@ -47,7 +47,7 @@ In addition to the features and services presented above, the WCCWPPI includes s
 
 * Please don't hesitate to read or post **comments and questions** on our [mini-forum](http://www.WatchCount.com/go/?link=wp_gcwccwppi "Get support on our 'mini-forum'...") (Global Conversations page) –- login to post with an account you probably already have.
 * If you use our plugin, please be sure to join our [WCCWPPI Notification Alerts list](http://www.WatchCount.com/go/?link=wp_i_pi_alerts "Get notified about important WCCWPPI information...") so we can email you about **critical updates** and information. (Don't worry - we're not spammers and we hate junk mail as much as you do.)
-* By default, the WCCWPPI displays a small WatchCount.com logo/tagline/backlink, but you can disable this on the Admin/Settings page. If you had entered an ePN CampID on the Settings page, your ePN tracking links will display within the plugin **100%** of the time if our backlink is enabled, or 50% of the time if you opt to suppress it.
+* By default, the WCCWPPI displays a small WatchCount.com logo/tagline/backlink -- but you can **easily disable** this on the Admin/Settings page. If you had entered an ePN CampID on the Settings page, your ePN tracking links will display within the plugin 100% of the time if our backlink is enabled, or 50% of the time if you opt to suppress it.
 * Comprehensive information about this plugin (including FAQ, live demo blog, screenshots, and documentation) is located [on our website](http://www.WatchCount.com/go/?link=wp_i_pi "WCCWPPI information at WatchCount.com...").
 * **=> Already using** our plugin? Please consider taking a quick moment to rate it -- see the right sidebar up above (thanks so much!).
 
