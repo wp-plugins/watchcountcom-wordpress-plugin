@@ -2,7 +2,7 @@
 /*
 Plugin Name: WatchCount.com WordPress Plugin
 Plugin URI: http://www.WatchCount.com/wp/
-Version: 1.1.0
+Version: 1.1.1
 Author: WatchCount.com
 Author URI: http://www.WatchCount.com/
 Description: The WatchCount.com WordPress Plugin (WCCWPPI) displays Most Popular/Watched eBay items (or a seller&#39;s items) in real-time, as a blog sidebar widget or within individual blog posts (or both). <strong>-- New Install? Get Going in 4 Easy Steps --</strong> <strong>(1)</strong> Click the 'Activate' link to the left. <strong>(2)</strong> Join our <a href="http://www.WatchCount.com/go/?link=wp_i_pi_alerts" title="Get notified about important WCCWPPI information..." target="_blank">WCCWPPI Notification Alerts list</a> so we can email you about critical upgrades/info. <strong>(3)</strong> Find your WordPress 'Widgets' page and drag the eBay Items widget into your sidebar. <strong>(4)</strong> Embed the WCCWPPI within your blog posts: just include <strong>[eBay]</strong> as you type, or get more specific: <strong>[eBay keywords="free shipping"]</strong> . . . Full <a href="http://www.WatchCount.com/go/?link=wp_i_pi_qs" title="WCCWPPI Quick Start Instructions..." target="_blank">Quick Start Instructions</a> are availble on our <a href="http://www.WatchCount.com/go/?link=wp_i_pi" title="Information about WCCWPPI..." target="_blank">WCCWPPI Information page</a>, and community support is available on our <a href="http://www.WatchCount.com/go/?link=wp_gcwccwppi" title="WCCWPPI 'mini-forum'..." target="_blank">Global Conversations page</a>. (If needed, you can <a href="http://www.WatchCount.com/go/?link=wp_i_contact" title="Contact WatchCount.com..." target="_blank">contact us directly</a>.)
@@ -51,7 +51,7 @@ Description: The WatchCount.com WordPress Plugin (WCCWPPI) displays Most Popular
  * Global Constants for WCCWPPI Functions
  * ---------------------------------------------------------------
  */
-define( 'WCCWPPI_CLIENT_VERSION' , '1.1.0' , FALSE ) ;   // current version of this WatchCount.com WordPress Plugin client
+define( 'WCCWPPI_CLIENT_VERSION' , '1.1.1' , FALSE ) ;   // current version of this WatchCount.com WordPress Plugin client
 define( 'WCCWPPI_CALLBACK_PRIORITY' , 6 , FALSE ) ;   // priority level to use for wccwppi callback functions
 define( 'WCCWPPI_OPTION_NAME' , 'wccwppi_option_params' , FALSE ) ;   // option name for WPDB storage that contains array of WCCWPPI settings/parameters
 define( 'WCCWPPI_ADMINPAGE_HANDLE' , 'wccwppi-settings' , FALSE ) ;   // internal handle/name for admin-options page
@@ -452,6 +452,8 @@ function wccwppi_adminpage_display () {
                                      'wccwppi_rssdisable'=>'' ,
                                      'wccwppi_seller'=>'' ,
                                      'wccwppi_sort'=>'EndTimeSoonest' ,
+                                     'wccwppi_wcclogoy'=>'' ,
+                                     'wccwppi_sidwidlabel'=>'' ,
                                      'wccwppi_fc'=>''  ) ;
 
 
@@ -802,13 +804,19 @@ function wccwppi_adminpage_display () {
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-right\">Underline</td>\r\n" ) ;
    $v_html_output .= ( "</tr>\r\n" ) ;
    $v_html_output .= ( "<tr>\r\n" ) ;
-   $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-left\">Vertical Offset:</td>\r\n" ) ;
+   $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-left\">Y-Offset:</td>\r\n" ) ;
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-right\">\r\n" ) ;
    $v_html_output .= ( "   <input type=\"text\" class=\"wccwppi-settings-text\" name=\"wccwppi_titley\" id=\"wccwppi_titley\" value=\"" . htmlentities( $a_wccwppi_option_params['wccwppi_titley'] , ENT_QUOTES , 'UTF-8' ) . "\" maxlength=\"2\" size=\"2\" title=\"Number of pixels to adjust title vertically...\" tabindex=\"23\" /> <span class=\"wccwppi-labelsuffix\">(px)</span>\r\n" ) ;
    $v_html_output .= ( "</td>\r\n" ) ;
    $v_html_output .= ( "</tr>\r\n" ) ;
+   $v_html_output .= ( "<tr>\r\n" ) ;
+   $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-left\">Sidebar Widget Label:</td>\r\n" ) ;
+   $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-right\">\r\n" ) ;
+   $v_html_output .= ( "   <input type=\"text\" class=\"wccwppi-settings-text\" name=\"wccwppi_sidwidlabel\" id=\"wccwppi_sidwidlabel\" value=\"" . htmlentities( $a_wccwppi_option_params['wccwppi_sidwidlabel'] , ENT_QUOTES , 'UTF-8' ) . "\" maxlength=\"120\" size=\"42\" title=\"Enter sidebar widget label text...\" tabindex=\"24\" />\r\n" ) ;
+   $v_html_output .= ( "</td>\r\n" ) ;
+   $v_html_output .= ( "</tr>\r\n" ) ;
    $v_html_output .= ( "<tr><td class=\"wccwppi-controls wccwppi-controls-text\" colspan=\"2\">\r\n" ) ;
-   $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">You can override the default WCCWPPI title with your own text, as well as customize its appearance with a variety of formatting options.</p>\r\n" ) ;
+   $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">You can override the default WCCWPPI title with your own text, as well as customize its appearance with a variety of formatting options. You can also specify a Theme-formatted header-label for when the plugin is displayed as a sidebar widget.</p>\r\n" ) ;
    $v_html_output .= ( "</td></tr>\r\n" ) ;
    $v_html_output .= ( "</table>\r\n" ) ;
    $v_html_output .= ( "<!-- End: WCCWPPI Admin/Settings Page - Control Block (Title) -->\r\n\r\n" ) ;
@@ -818,19 +826,19 @@ function wccwppi_adminpage_display () {
    $v_html_output .= ( "<tr>\r\n" ) ;
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-left\">Search Button Text:</td>\r\n" ) ;
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-right\">\r\n" ) ;
-   $v_html_output .= ( "   <input type=\"text\" class=\"wccwppi-settings-text\" name=\"wccwppi_sbuttontxt\" id=\"wccwppi_sbuttontxt\" value=\"" . htmlentities( $a_wccwppi_option_params['wccwppi_sbuttontxt'] , ENT_QUOTES , 'UTF-8' ) . "\" maxlength=\"17\" size=\"19\" title=\"Specify alternate text for the Inline Search button...\" tabindex=\"24\" />\r\n" ) ;
+   $v_html_output .= ( "   <input type=\"text\" class=\"wccwppi-settings-text\" name=\"wccwppi_sbuttontxt\" id=\"wccwppi_sbuttontxt\" value=\"" . htmlentities( $a_wccwppi_option_params['wccwppi_sbuttontxt'] , ENT_QUOTES , 'UTF-8' ) . "\" maxlength=\"17\" size=\"19\" title=\"Specify alternate text for the Inline Search button...\" tabindex=\"25\" />\r\n" ) ;
    $v_html_output .= ( "</td>\r\n" ) ;
    $v_html_output .= ( "</tr>\r\n" ) ;
    $v_html_output .= ( "<tr>\r\n" ) ;
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-left\">Info Message:</td>\r\n" ) ;
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-right\">\r\n" ) ;
-   $v_html_output .= ( "   <input type=\"text\" class=\"wccwppi-settings-text\" name=\"wccwppi_infomsg\" id=\"wccwppi_infomsg\" value=\"" . htmlentities( $a_wccwppi_option_params['wccwppi_infomsg'] , ENT_QUOTES , 'UTF-8' ) . "\" maxlength=\"100\" size=\"48\" title=\"Specify a custom informational message to display in place of the Inline Search box...\" tabindex=\"25\" />\r\n" ) ;
+   $v_html_output .= ( "   <input type=\"text\" class=\"wccwppi-settings-text\" name=\"wccwppi_infomsg\" id=\"wccwppi_infomsg\" value=\"" . htmlentities( $a_wccwppi_option_params['wccwppi_infomsg'] , ENT_QUOTES , 'UTF-8' ) . "\" maxlength=\"100\" size=\"48\" title=\"Specify a custom informational message to display in place of the Inline Search box...\" tabindex=\"26\" />\r\n" ) ;
    $v_html_output .= ( "</td>\r\n" ) ;
    $v_html_output .= ( "</tr>\r\n" ) ;
    $v_html_output .= ( "<tr>\r\n" ) ;
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-left\">Default Alignment:</td>\r\n" ) ;
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-right\">\r\n" ) ;
-   $v_html_output .= ( "   <select class=\"wccwppi-settings\" name=\"wccwppi_deffloat\" id=\"wccwppi_deffloat\" size=\"1\" title=\"Specify how in-post plugin displays should be aligned...\" tabindex=\"26\">\r\n" ) ;
+   $v_html_output .= ( "   <select class=\"wccwppi-settings\" name=\"wccwppi_deffloat\" id=\"wccwppi_deffloat\" size=\"1\" title=\"Specify how in-post plugin displays should be aligned...\" tabindex=\"27\">\r\n" ) ;
    foreach ($a_options_align as $index => $value) {
       $v_html_output .= ( "      <option value=\"" . $index . "\"" . ( ($a_wccwppi_option_params['wccwppi_deffloat'] == $index) ? (" selected=\"selected\"") : ('') ) . ">" . $value . "</option>\r\n" ) ;
    }
@@ -840,18 +848,24 @@ function wccwppi_adminpage_display () {
    $v_html_output .= ( "<tr>\r\n" ) ;
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-left\">Max Results:</td>\r\n" ) ;
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-right\">\r\n" ) ;
-   $v_html_output .= ( "   <input type=\"text\" class=\"wccwppi-settings-text\" name=\"wccwppi_climit\" id=\"wccwppi_climit\" value=\"" . htmlentities( $a_wccwppi_option_params['wccwppi_climit'] , ENT_QUOTES , 'UTF-8' ) . "\" maxlength=\"2\" size=\"2\" title=\"Maximum number of eBay items to display...\" tabindex=\"27\" />&#160;&#160;&#160;<span class=\"wccwppi-labelsuffix\">(0 = default values)</span>\r\n" ) ;
+   $v_html_output .= ( "   <input type=\"text\" class=\"wccwppi-settings-text\" name=\"wccwppi_climit\" id=\"wccwppi_climit\" value=\"" . htmlentities( $a_wccwppi_option_params['wccwppi_climit'] , ENT_QUOTES , 'UTF-8' ) . "\" maxlength=\"2\" size=\"2\" title=\"Maximum number of eBay items to display...\" tabindex=\"28\" />&#160;&#160;&#160;<span class=\"wccwppi-labelsuffix\">(0 = default values)</span>\r\n" ) ;
    $v_html_output .= ( "</td>\r\n" ) ;
    $v_html_output .= ( "</tr>\r\n" ) ;
    $v_html_output .= ( "<tr>\r\n" ) ;
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-left\">Divider Color:</td>\r\n" ) ;
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-right\">\r\n" ) ;
-   $v_html_output .= ( "   <input type=\"text\" class=\"wccwppi-settings-text\" name=\"wccwppi_divcol\" id=\"wccwppi_divcol\" value=\"" . htmlentities( $a_wccwppi_option_params['wccwppi_divcol'] , ENT_QUOTES , 'UTF-8' ) . "\" maxlength=\"6\" size=\"6\" title=\"Item divider color (enter 6-digit color code)...\" tabindex=\"28\" />&#160;&#160;&#160;<span class=\"wccwppi-labelsuffix\">(<a href=\"http://www.WatchCount.com/go/?link=wp_colorchart\" class=\"wccwppi-links\" target=\"_blank\" title=\"Online color chart...\">lookup</a> 6-digit hexadecimal color code)</span>\r\n" ) ;
+   $v_html_output .= ( "   <input type=\"text\" class=\"wccwppi-settings-text\" name=\"wccwppi_divcol\" id=\"wccwppi_divcol\" value=\"" . htmlentities( $a_wccwppi_option_params['wccwppi_divcol'] , ENT_QUOTES , 'UTF-8' ) . "\" maxlength=\"6\" size=\"6\" title=\"Item divider color (enter 6-digit color code)...\" tabindex=\"29\" />&#160;&#160;&#160;<span class=\"wccwppi-labelsuffix\">(<a href=\"http://www.WatchCount.com/go/?link=wp_colorchart\" class=\"wccwppi-links\" target=\"_blank\" title=\"Online color chart...\">lookup</a> 6-digit hexadecimal color code)</span>\r\n" ) ;
+   $v_html_output .= ( "</td>\r\n" ) ;
+   $v_html_output .= ( "</tr>\r\n" ) ;
+   $v_html_output .= ( "<tr>\r\n" ) ;
+   $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-left\">WCC Logo Y-Offset:</td>\r\n" ) ;
+   $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-right\">\r\n" ) ;
+   $v_html_output .= ( "   <input type=\"text\" class=\"wccwppi-settings-text\" name=\"wccwppi_wcclogoy\" id=\"wccwppi_wcclogoy\" value=\"" . htmlentities( $a_wccwppi_option_params['wccwppi_wcclogoy'] , ENT_QUOTES , 'UTF-8' ) . "\" maxlength=\"2\" size=\"2\" title=\"Number of pixels to adjust WatchCount.com logo vertically...\" tabindex=\"30\" /> <span class=\"wccwppi-labelsuffix\">(px)</span>\r\n" ) ;
    $v_html_output .= ( "</td>\r\n" ) ;
    $v_html_output .= ( "</tr>\r\n" ) ;
    $v_html_output .= ( "<tr>\r\n" ) ;
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-left\">\r\n" ) ;
-   $v_html_output .= ( "   <input type=\"checkbox\" class=\"wccwppi-settings-checkbox\" name=\"wccwppi_rssdisable\" id=\"wccwppi_rssdisable\" value=\"1\" " . ( ($a_wccwppi_option_params['wccwppi_rssdisable']) ? ("checked=\"checked\"") : ('') ) . " title=\"Checked: Entire WCCWPPI display disabled inside RSS/feeds.\" tabindex=\"29\" />\r\n" ) ;
+   $v_html_output .= ( "   <input type=\"checkbox\" class=\"wccwppi-settings-checkbox\" name=\"wccwppi_rssdisable\" id=\"wccwppi_rssdisable\" value=\"1\" " . ( ($a_wccwppi_option_params['wccwppi_rssdisable']) ? ("checked=\"checked\"") : ('') ) . " title=\"Checked: Entire WCCWPPI display disabled inside RSS/feeds.\" tabindex=\"31\" />\r\n" ) ;
    $v_html_output .= ( "</td>\r\n" ) ;
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-right\">RSS/Feeds: Disable Entire WCCWPPI Display</td>\r\n" ) ;
    $v_html_output .= ( "</tr>\r\n" ) ;
@@ -1255,6 +1269,8 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
                                'wccwppi_rssdisable'=>'' ,
                                'wccwppi_seller'=>'' ,
                                'wccwppi_sort'=>'' ,
+                               'wccwppi_wcclogoy'=>'' ,
+                               'wccwppi_sidwidlabel'=>'' ,
                                'wccwppi_fc'=>''  ) ;
 
 
@@ -1390,9 +1406,19 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
       } // endif: some kind of WCCAPI Call problem
 
       else {
-         $v_html_output  = ( (isset($In_Widget['before_widget'])) ? ($In_Widget['before_widget']) : ('') ) ;
+
+         $v_html_output .= ( (isset($In_Widget['before_widget'])) ? ($In_Widget['before_widget']) : ('') ) ;
+
+         if ( (isset($In_Widget['before_title'])) && (isset($In_Widget['after_title'])) && ($a_wccwppi_params['wccwppi_sidwidlabel']) ) {
+            $v_html_output .= ( $In_Widget['before_title'] ) ;
+            $v_html_output .= ( $a_wccwppi_params['wccwppi_sidwidlabel'] ) ;
+            $v_html_output .= ( $In_Widget['after_title'] ) ;
+         } // endif: build sidebar widget header-label
+
          $v_html_output .= ( $a_wccapi_call[0] ) ;
+
          $v_html_output .= ( (isset($In_Widget['after_widget'])) ? ($In_Widget['after_widget']) : ('') ) ;
+
       } // endif: WCCAPI Call seemed to complete OK
 
    } // endif: make call via cURL
@@ -1414,9 +1440,19 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
          } // endif: some kind of WCCAPI Call problem
 
          else {
-            $v_html_output  = ( (isset($In_Widget['before_widget'])) ? ($In_Widget['before_widget']) : ('') ) ;
+
+            $v_html_output .= ( (isset($In_Widget['before_widget'])) ? ($In_Widget['before_widget']) : ('') ) ;
+
+            if ( (isset($In_Widget['before_title'])) && (isset($In_Widget['after_title'])) && ($a_wccwppi_params['wccwppi_sidwidlabel']) ) {
+               $v_html_output .= ( $In_Widget['before_title'] ) ;
+               $v_html_output .= ( $a_wccwppi_params['wccwppi_sidwidlabel'] ) ;
+               $v_html_output .= ( $In_Widget['after_title'] ) ;
+            } // endif: build sidebar widget header-label
+
             $v_html_output .= ( $a_wccapi_call[0] ) ;
+
             $v_html_output .= ( (isset($In_Widget['after_widget'])) ? ($In_Widget['after_widget']) : ('') ) ;
+
          } // endif: WCCAPI Call seemed to complete OK
 
       } // endif: make call via WP HTTP API
