@@ -1,15 +1,15 @@
 <?php
 /*
 Plugin Name: WatchCount.com WordPress Plugin
-Plugin URI: http://www.WatchCount.com/wp/
-Version: 1.1.1
+Plugin URI: http://www.WatchCount.com/ebay-wordpress-plugin.php
+Version: 1.1.2
 Author: WatchCount.com
 Author URI: http://www.WatchCount.com/
 Description: The WatchCount.com WordPress Plugin (WCCWPPI) displays Most Popular/Watched eBay items (or a seller&#39;s items) in real-time, as a blog sidebar widget or within individual blog posts (or both). <strong>-- New Install? Get Going in 4 Easy Steps --</strong> <strong>(1)</strong> Click the 'Activate' link to the left. <strong>(2)</strong> Join our <a href="http://www.WatchCount.com/go/?link=wp_i_pi_alerts" title="Get notified about important WCCWPPI information..." target="_blank">WCCWPPI Notification Alerts list</a> so we can email you about critical upgrades/info. <strong>(3)</strong> Find your WordPress 'Widgets' page and drag the eBay Items widget into your sidebar. <strong>(4)</strong> Embed the WCCWPPI within your blog posts: just include <strong>[eBay]</strong> as you type, or get more specific: <strong>[eBay keywords="free shipping"]</strong> . . . Full <a href="http://www.WatchCount.com/go/?link=wp_i_pi_qs" title="WCCWPPI Quick Start Instructions..." target="_blank">Quick Start Instructions</a> are availble on our <a href="http://www.WatchCount.com/go/?link=wp_i_pi" title="Information about WCCWPPI..." target="_blank">WCCWPPI Information page</a>, and community support is available on our <a href="http://www.WatchCount.com/go/?link=wp_gcwccwppi" title="WCCWPPI 'mini-forum'..." target="_blank">Global Conversations page</a>. (If needed, you can <a href="http://www.WatchCount.com/go/?link=wp_i_contact" title="Contact WatchCount.com..." target="_blank">contact us directly</a>.)
 */
 
 /**
- * Copyright © 2009 WatchCount.com - All Rights Reserved  [ contact: http://www.WatchCount.com/contact.php ]
+ * Copyright © 2010 WatchCount.com - All Rights Reserved  [ contact: http://www.WatchCount.com/contact.php ]
  *
  * This program is free software: you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -51,7 +51,7 @@ Description: The WatchCount.com WordPress Plugin (WCCWPPI) displays Most Popular
  * Global Constants for WCCWPPI Functions
  * ---------------------------------------------------------------
  */
-define( 'WCCWPPI_CLIENT_VERSION' , '1.1.1' , FALSE ) ;   // current version of this WatchCount.com WordPress Plugin client
+define( 'WCCWPPI_CLIENT_VERSION' , '1.1.2' , FALSE ) ;   // current version of this WatchCount.com WordPress Plugin client
 define( 'WCCWPPI_CALLBACK_PRIORITY' , 6 , FALSE ) ;   // priority level to use for wccwppi callback functions
 define( 'WCCWPPI_OPTION_NAME' , 'wccwppi_option_params' , FALSE ) ;   // option name for WPDB storage that contains array of WCCWPPI settings/parameters
 define( 'WCCWPPI_ADMINPAGE_HANDLE' , 'wccwppi-settings' , FALSE ) ;   // internal handle/name for admin-options page
@@ -342,8 +342,11 @@ function wccwppi_adminpage_header () {
 function wccwppi_adminpage_display () {
 
    // -----------------------------------
-   // Definitions + Nonce
+   // Globals + Definitions + Nonce
    // -----------------------------------
+   global $wp_version ;
+   $c_wpver = ( (isset($wp_version)) ? ($wp_version) : (get_bloginfo('version')) ) ;
+   $c_phpver = phpversion() ;
    $c_wccwppi_version = constant('WCCWPPI_CLIENT_VERSION') ;
    $c_wccwppi_option_name = constant('WCCWPPI_OPTION_NAME') ;
    $c_wccwppi_widget_callback = constant('WCCWPPI_WIDGET_CALLBACK') ;
@@ -936,6 +939,7 @@ function wccwppi_adminpage_display () {
    $v_html_output .= ( "<tr><td class=\"wccwppi-header\">WCCWPPI Version</td></tr>\r\n" ) ;
    $v_html_output .= ( "<tr><td class=\"wccwppi-content wccwppi-text-style1\" align=\"center\">\r\n" ) ;
    $v_html_output .= ( "<div class=\"wccwppi-text wccwppi-text-style1\">You are currently running version <span class=\"wccwppi-highlight2\">" . $c_wccwppi_version . "</span> of the WatchCount.com WordPress Plugin.</div>\r\n" ) ;
+   $v_html_output .= ( "<div class=\"wccwppi-text wccwppi-text-style1 wccwppi-margintopper1\"><span class=\"wccwppi-gray1\">WordPress: <span class=\"wccwppi-highlight2\">" . $c_wpver . "</span><br />PHP: <span class=\"wccwppi-highlight2\">" . $c_phpver . "</span></span></div>\r\n" ) ;
    $v_html_output .= ( "</td></tr>\r\n" ) ;
    $v_html_output .= ( "</table>\r\n" ) ;
    $v_html_output .= ( "<!-- End: WCCWPPI Admin/Settings Page - Box: Current Version -->\r\n\r\n" ) ;
@@ -1202,10 +1206,11 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
    $c_isfeed = is_feed() ;
    $c_postid = get_the_ID() ;
    $c_phpver = phpversion() ;
-   $c_userip = getenv('REMOTE_ADDR') ;
-   $c_blogip = getenv('SERVER_ADDR') ;
-   $c_userref = getenv('HTTP_REFERER') ;
-   $c_userbrow = getenv('HTTP_USER_AGENT') ;
+   $c_unique = ( (string) (time()) . '.' . (string) (mt_rand(1000,9999)) ) ;
+   $c_userip = ( (getenv('REMOTE_ADDR')) ? (getenv('REMOTE_ADDR')) : ( (isset($_SERVER['REMOTE_ADDR'])) ? ($_SERVER['REMOTE_ADDR']) : ('') ) ) ;
+   $c_blogip = ( (getenv('SERVER_ADDR')) ? (getenv('SERVER_ADDR')) : ( (isset($_SERVER['SERVER_ADDR'])) ? ($_SERVER['SERVER_ADDR']) : ('') ) ) ;
+   $c_userref = ( (getenv('HTTP_REFERER')) ? (getenv('HTTP_REFERER')) : ( (isset($_SERVER['HTTP_REFERER'])) ? ($_SERVER['HTTP_REFERER']) : ('') ) ) ;
+   $c_userbrow = ( (getenv('HTTP_USER_AGENT')) ? (getenv('HTTP_USER_AGENT')) : ( (isset($_SERVER['HTTP_USER_AGENT'])) ? ($_SERVER['HTTP_USER_AGENT']) : ('') ) ) ;
    $c_serverurl = wccwppi_myurl() ;
 
 
@@ -1220,7 +1225,7 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
    $c_wccapi_anchor_maxlenname = 20 ;   // max length of anchor field names
    $c_wccapi_anchor_maxlenval = 90 ;   // max length of anchor field values
    $f_wccapi_diags = TRUE ;   // append WCCAPI call diagnostics details to HTML output?
-   $a_wccapi_unstored = array( 'wccwppi_isfeed' , 'wccwppi_posttags' , 'wccwppi_postid' , 'wccwppi_1post' , 'wccwppi_flags' , 'wccwppi_kwuser' , 'wccwppi_loc' , 'wccwppi_ver' , 'wccwppi_verwp' , 'wccwppi_verphp' , 'wccwppi_userip' , 'wccwppi_userref' , 'wccwppi_userbrow' , 'wccwppi_serverurl' ) ;   // data fields unstored in WPDB
+   $a_wccapi_unstored = array( 'wccwppi_isfeed' , 'wccwppi_posttags' , 'wccwppi_postid' , 'wccwppi_1post' , 'wccwppi_flags' , 'wccwppi_kwuser' , 'wccwppi_loc' , 'wccwppi_ver' , 'wccwppi_verwp' , 'wccwppi_verphp' , 'wccwppi_userip' , 'wccwppi_userref' , 'wccwppi_userbrow' , 'wccwppi_serverurl'  , 'wccwppi_unique' ) ;   // data fields unstored in WPDB
 
 
    // -----------------------------------
@@ -1236,6 +1241,7 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
                                'wccwppi_userref'=>($c_userref) ,
                                'wccwppi_userbrow'=>($c_userbrow) ,
                                'wccwppi_serverurl'=>($c_serverurl) ,
+                               'wccwppi_unique'=>($c_unique) ,
                                'wccwppi_kwuser'=>'' ,
                                'wccwppi_loc'=>'' ,
                                'wccwppi_flags'=>'' ,
@@ -1476,7 +1482,7 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
       $v_html_output .= ( 'curly? : ' . wccwppi_curly() . "\r\n" ) ;
       $v_html_output .= ( 'hapi? : ' . wccwppi_hapi() . "\r\n" ) ;
       $v_html_output .= ( 'Blog IP : ' . $c_blogip . "\r\n" ) ;
-      $v_html_output .= ( 'Timestamp : ' . time() . "\r\n" ) ;
+      $v_html_output .= ( 'Timestamp / Unique Call ID : ' . $c_unique . "\r\n" ) ;
       $v_html_output .= ( 'Code : ' . ( (isset($a_wccapi_call[1])) ? ($a_wccapi_call[1]) : ('') ) . "\r\n" ) ;
       $v_html_output .= ( 'ErrNum : ' . ( (isset($a_wccapi_call[2])) ? ($a_wccapi_call[2]) : ('') ) . "\r\n" ) ;
       $v_html_output .= ( 'ErrStr : ' . ( (isset($a_wccapi_call[3])) ? ($a_wccapi_call[3]) : ('') ) . "\r\n" ) ;

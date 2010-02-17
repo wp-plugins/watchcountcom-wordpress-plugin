@@ -1,7 +1,7 @@
 === WatchCount.com WordPress Plugin ===
 Contributors: WatchCount.com
 Requires at least: 2.6
-Tested up to: 2.9.1
+Tested up to: 2.9.2
 Stable tag: trunk
 Tags: WatchCount.com WordPress Plugin, WatchCount.com, WordPress, eBay, ePN, eBay Partner Network, watch count, free, no cost, auction, auctions, most popular, most watched, items, item, categories, category, bidding, eBay Pulse, eBay Daily Deal, eBay Daily Deals, The Big Deal, Wow des Tages, Wow Angebote, Wow Auktionen, shopping, seller, sellers, store, stores, shop, shops, post, posts, post tag, post tags, sidebar, widget, sidebar widget, ad, ads, advertising, advertise, tag, tags, shortcode, RSS, affiliate, affiliates, make money, money, income, commission, commissions, content, links, admin, automatic, sales, plugin, international, wordpres, worldpress, WCCWPPI, WatchCount, watch count, WCC WP Plugin, SEO
 
