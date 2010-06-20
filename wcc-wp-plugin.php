@@ -2,7 +2,7 @@
 /*
 Plugin Name: WatchCount.com WordPress Plugin
 Plugin URI: http://www.WatchCount.com/ebay-wordpress-plugin.php
-Version: 1.1.2
+Version: 1.1.3
 Author: WatchCount.com
 Author URI: http://www.WatchCount.com/
 Description: The WatchCount.com WordPress Plugin (WCCWPPI) displays Most Popular/Watched eBay items (or a seller&#39;s items) in real-time, as a blog sidebar widget or within individual blog posts (or both). <strong>-- New Install? Get Going in 4 Easy Steps --</strong> <strong>(1)</strong> Click the 'Activate' link to the left. <strong>(2)</strong> Join our <a href="http://www.WatchCount.com/go/?link=wp_i_pi_alerts" title="Get notified about important WCCWPPI information..." target="_blank">WCCWPPI Notification Alerts list</a> so we can email you about critical upgrades/info. <strong>(3)</strong> Find your WordPress 'Widgets' page and drag the eBay Items widget into your sidebar. <strong>(4)</strong> Embed the WCCWPPI within your blog posts: just include <strong>[eBay]</strong> as you type, or get more specific: <strong>[eBay keywords="free shipping"]</strong> . . . Full <a href="http://www.WatchCount.com/go/?link=wp_i_pi_qs" title="WCCWPPI Quick Start Instructions..." target="_blank">Quick Start Instructions</a> are availble on our <a href="http://www.WatchCount.com/go/?link=wp_i_pi" title="Information about WCCWPPI..." target="_blank">WCCWPPI Information page</a>, and community support is available on our <a href="http://www.WatchCount.com/go/?link=wp_gcwccwppi" title="WCCWPPI 'mini-forum'..." target="_blank">Global Conversations page</a>. (If needed, you can <a href="http://www.WatchCount.com/go/?link=wp_i_contact" title="Contact WatchCount.com..." target="_blank">contact us directly</a>.)
@@ -51,7 +51,7 @@ Description: The WatchCount.com WordPress Plugin (WCCWPPI) displays Most Popular
  * Global Constants for WCCWPPI Functions
  * ---------------------------------------------------------------
  */
-define( 'WCCWPPI_CLIENT_VERSION' , '1.1.2' , FALSE ) ;   // current version of this WatchCount.com WordPress Plugin client
+define( 'WCCWPPI_CLIENT_VERSION' , '1.1.3' , FALSE ) ;   // current version of this WatchCount.com WordPress Plugin client
 define( 'WCCWPPI_CALLBACK_PRIORITY' , 6 , FALSE ) ;   // priority level to use for wccwppi callback functions
 define( 'WCCWPPI_OPTION_NAME' , 'wccwppi_option_params' , FALSE ) ;   // option name for WPDB storage that contains array of WCCWPPI settings/parameters
 define( 'WCCWPPI_ADMINPAGE_HANDLE' , 'wccwppi-settings' , FALSE ) ;   // internal handle/name for admin-options page
@@ -385,7 +385,7 @@ function wccwppi_adminpage_display () {
    // -----------------------------------
    // notes: | order matters | ['internal parameter'] => 'displayed option' |
    // -----------------------------------
-   $a_options_revlev = array( 'high'=>'High/100% (WCC Tagline Displayed)' , 'low'=>'Low/50% (WCC Tagline Suppressed)' ) ;
+   $a_options_revlev = array( 'high'=>'High/100% (WCC Tagline Displayed)' , 'low'=>'Low/80% (WCC Tagline Suppressed)' ) ;
    $a_options_edd = array( '0'=>'(no)' , 'US'=>'eBay.com (US)' , 'UK'=>'eBay.co.uk (UK)' , 'DE'=>'eBay.de (DE)' , 'AU'=>'eBay.com.au (AU)' ) ;
    $a_options_insearch = array( 'default'=>'(default)' , 'eBay'=>'eBay (visitor taken to eBay)' , 'self'=>'Self (search results displayed in-plugin)' , 'hidden'=>'Hidden (show info msg instead)' ) ;
    $a_options_align = array( 'default'=>'(default)' , 'left'=>'left' , 'right'=>'right' , 'none'=>'none' ) ;
@@ -413,8 +413,12 @@ function wccwppi_adminpage_display () {
                                  'FR'=>'eBay.fr (FR)' ,
                                  'ES'=>'eBay.es (ES)' ,
                                  'IT'=>'eBay.it (IT)' ,
+                                 'NL'=>'eBay.nl (NL)' ,
                                  'BENL'=>'benl.eBay.be (BENL)' ,
                                  'BEFR'=>'befr.eBay.be (BEFR)' ,
+                                 'AT'=>'eBay.at (AT)' ,
+                                 'CH'=>'eBay.ch (CH)' ,
+                                 'MY'=>'eBay.com.my (MY)' ,
                                  'IN'=>'eBay.in (IN)' ,
                                  'SG'=>'eBay.com.sg (SG)' ,
                                  'Motors'=>'motors.eBay.com (Motors) [US]' ) ;
@@ -750,7 +754,7 @@ function wccwppi_adminpage_display () {
    $v_html_output .= ( "</tr>\r\n" ) ;
    $v_html_output .= ( "<tr><td class=\"wccwppi-controls wccwppi-controls-text\" colspan=\"2\">\r\n" ) ;
    $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">If you have an ePN account and a blog on your own domain, you can potentially generate commissions when your visitors click through to eBay then make purchases. Enter your newly-generated 10-digit ePN Campaign ID code above.</p>\r\n" ) ;
-   $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">If you entered your ePN Campaign ID above, you can opt between 2 impression sharing levels whereby your eBay/ePN affiliate links will be shown in a percentage of plugin impressions/displays (random rotation). 'High/100%' puts your affiliate links in the plugin all the time, but displays a small WatchCount.com logo/backlink. 'Low/50%' shares impressions with us, and so we hide the promo tagline/backlink.</p>\r\n" ) ;
+   $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">If you entered your ePN Campaign ID above, you can opt between 2 impression sharing levels whereby your eBay/ePN affiliate links will be shown in a percentage of plugin impressions/displays (random rotation). 'High/100%' puts your affiliate links in the plugin all the time, but displays a small WatchCount.com logo/backlink. 'Low/80%' shares impressions with us (we get 20%), and so we hide the promo tagline/backlink.</p>\r\n" ) ;
    $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">If you left the ePN CampID field above blank, you can still control the placement or suppression of the WatchCount.com logo/tagline/backlink.</p>\r\n" ) ;
    $v_html_output .= ( "</td></tr>\r\n" ) ;
    $v_html_output .= ( "</table>\r\n" ) ;
@@ -1037,7 +1041,7 @@ function wccwppi_cURLfriend ($In_URL='', $In_POST='', $In_Headers=array(), $In_R
       // -----------------------------------
       $cURLhandle = curl_init() ;
       curl_setopt($cURLhandle, CURLOPT_URL, $In_URL) ;
-      curl_setopt($cURLhandle, CURLOPT_FOLLOWLOCATION, TRUE) ;
+      // curl_setopt($cURLhandle, CURLOPT_FOLLOWLOCATION, TRUE) ;
       curl_setopt($cURLhandle, CURLOPT_MAXREDIRS, $c_cURLopt_MaxRedirs) ;
       curl_setopt($cURLhandle, CURLOPT_USERAGENT, $c_cURLopt_UserAgent) ;
       curl_setopt($cURLhandle, CURLOPT_NOBODY, FALSE) ;
