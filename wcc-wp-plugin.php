@@ -2,14 +2,14 @@
 /*
 Plugin Name: WatchCount.com WordPress Plugin
 Plugin URI: http://www.WatchCount.com/ebay-wordpress-plugin.php
-Version: 1.1.3
+Version: 1.1.4
 Author: WatchCount.com
 Author URI: http://www.WatchCount.com/
 Description: The WatchCount.com WordPress Plugin (WCCWPPI) displays Most Popular/Watched eBay items (or a seller&#39;s items) in real-time, as a blog sidebar widget or within individual blog posts (or both). <strong>-- New Install? Get Going in 4 Easy Steps --</strong> <strong>(1)</strong> Click the 'Activate' link to the left. <strong>(2)</strong> Join our <a href="http://www.WatchCount.com/go/?link=wp_i_pi_alerts" title="Get notified about important WCCWPPI information..." target="_blank">WCCWPPI Notification Alerts list</a> so we can email you about critical upgrades/info. <strong>(3)</strong> Find your WordPress 'Widgets' page and drag the eBay Items widget into your sidebar. <strong>(4)</strong> Embed the WCCWPPI within your blog posts: just include <strong>[eBay]</strong> as you type, or get more specific: <strong>[eBay keywords="free shipping"]</strong> . . . Full <a href="http://www.WatchCount.com/go/?link=wp_i_pi_qs" title="WCCWPPI Quick Start Instructions..." target="_blank">Quick Start Instructions</a> are availble on our <a href="http://www.WatchCount.com/go/?link=wp_i_pi" title="Information about WCCWPPI..." target="_blank">WCCWPPI Information page</a>, and community support is available on our <a href="http://www.WatchCount.com/go/?link=wp_gcwccwppi" title="WCCWPPI 'mini-forum'..." target="_blank">Global Conversations page</a>. (If needed, you can <a href="http://www.WatchCount.com/go/?link=wp_i_contact" title="Contact WatchCount.com..." target="_blank">contact us directly</a>.)
 */
 
 /**
- * Copyright © 2010 WatchCount.com - All Rights Reserved  [ contact: http://www.WatchCount.com/contact.php ]
+ * Copyright © 2009-2011 WatchCount.com - All Rights Reserved  [ contact: http://www.WatchCount.com/contact.php ]
  *
  * This program is free software: you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -51,7 +51,7 @@ Description: The WatchCount.com WordPress Plugin (WCCWPPI) displays Most Popular
  * Global Constants for WCCWPPI Functions
  * ---------------------------------------------------------------
  */
-define( 'WCCWPPI_CLIENT_VERSION' , '1.1.3' , FALSE ) ;   // current version of this WatchCount.com WordPress Plugin client
+define( 'WCCWPPI_CLIENT_VERSION' , '1.1.4' , FALSE ) ;   // current version of this WatchCount.com WordPress Plugin client
 define( 'WCCWPPI_CALLBACK_PRIORITY' , 6 , FALSE ) ;   // priority level to use for wccwppi callback functions
 define( 'WCCWPPI_OPTION_NAME' , 'wccwppi_option_params' , FALSE ) ;   // option name for WPDB storage that contains array of WCCWPPI settings/parameters
 define( 'WCCWPPI_ADMINPAGE_HANDLE' , 'wccwppi-settings' , FALSE ) ;   // internal handle/name for admin-options page
@@ -79,7 +79,7 @@ add_shortcode(  'WCCWPPI' , 'wccwppi_execute_post' ) ;
 
 if ( function_exists('register_uninstall_hook') ) {
    register_uninstall_hook( __FILE__ , 'wccwppi_uninstall' ) ;
-} // endif: register_uninstall_hook() exists
+} // end-if: register_uninstall_hook() exists
 
 
 /**
@@ -114,18 +114,18 @@ function wccwppi_quicktags () {
          $Out = '' ;
          if (function_exists(plugins_url)) {
             $Out = ( trailingslashit( plugins_url( plugin_basename( dirname($In_File) ) ) ) ) ;
-         } // endif: for WP version 2.6 - 2.7
+         } // end-if: for WP version 2.6 - 2.7
          else {
             $Out = ( trailingslashit( get_option('siteurl') . '/wp-content/plugins/' . plugin_basename( dirname($In_File) ) ) ) ;
-         } // endif: for WP version < 2.6
+         } // end-if: for WP version < 2.6
          return($Out) ;
       } // end function: plugin_dir_url()
-   } // endif: defined substitute function for plugin_dir_url()
+   } // end-if: defined substitute function for plugin_dir_url()
 
    if ( file_exists( trailingslashit(dirname(__FILE__)) . $c_wccwppi_file_quicktags ) ) {
       $wccwppi_url_quicktags = ( plugin_dir_url(__FILE__) . $c_wccwppi_file_quicktags ) ;
       wp_enqueue_script( 'wccwppi_quicktags' , $wccwppi_url_quicktags , array('quicktags') ) ;
-   } // endif: quicktags file exists
+   } // end-if: quicktags file exists
 
 } // end function: wccwppi_quicktags()
 
@@ -503,7 +503,7 @@ function wccwppi_adminpage_display () {
          }
       } // end: foreach-looper
 
-   } // endif: Options retrieved from WPDB
+   } // end-if: Options retrieved from WPDB
 
 
    // -----------------------------------
@@ -516,17 +516,17 @@ function wccwppi_adminpage_display () {
 
          if ( isset($_POST[$index]) ) {
             $a_wccwppi_option_params[$index] = wccwppi_sanitize($_POST[$index]) ;
-         } // endif: field was POSTed
+         } // end-if: field was POSTed
 
          else {
             if ( in_array( $index , $a_wccwppi_params_checks ) ) {
                $a_wccwppi_option_params[$index] = NULL ;
-            } // endif: field is a registered checkbox (that is unchecked)
-         } // endif: field was *NOT* POSTed (probably a checkbox)
+            } // end-if: field is a registered checkbox (that is unchecked)
+         } // end-if: field was *NOT* POSTed (probably a checkbox)
 
       } // end: foreach-looper
 
-   } // endif: Options retrieved from POST
+   } // end-if: Options retrieved from POST
 
 
    // -----------------------------------
@@ -545,26 +545,26 @@ function wccwppi_adminpage_display () {
       $a_wccdf_call = wccwppi_cURLfriend( $v_wccdf_url_tips , NULL , NULL , $c_wccdf_retries , $c_wccdf_timeout ) ;
       if ($a_wccdf_call[1] != 'n') {
          $v_html_tips = ( "\r\n\r\n<!-- WatchCount.com WordPress Plugin: WCCDF Call Failure (cURL method) -->\r\n\r\n" ) ;
-      } // endif: some kind of WCCDF Call problem
+      } // end-if: some kind of WCCDF Call problem
       else {
          $v_html_tips = $a_wccdf_call[0] ;
-      } // endif: WCCDF Call seemed to complete OK
-   } // endif: make call via cURL
+      } // end-if: WCCDF Call seemed to complete OK
+   } // end-if: make call via cURL
    else {
       if (wccwppi_hapi()) {
          $h_wccdf_wp_remote = wp_remote_get( $v_wccdf_url_tips , array( 'method'=>'GET' , 'timeout'=>$c_wccdf_timeout , 'user-agent'=>('WatchCount.com WordPress Plugin client (WP HTTP API) version: ' . $c_wccwppi_version) , 'body'=>NULL ) ) ;
          $a_wccdf_call[0] = wp_remote_retrieve_body($h_wccdf_wp_remote) ;
          if (is_wp_error($h_wccdf_wp_remote)) {
             $v_html_tips = ( "\r\n\r\n<!-- WatchCount.com WordPress Plugin: WCCDF Call Failure (WP HTTP API method) -->\r\n\r\n" ) ;
-         } // endif: some kind of WCCDF Call problem
+         } // end-if: some kind of WCCDF Call problem
          else {
             $v_html_tips = $a_wccdf_call[0] ;
-         } // endif: WCCDF Call seemed to complete OK
-      } // endif: make call via WP HTTP API
+         } // end-if: WCCDF Call seemed to complete OK
+      } // end-if: make call via WP HTTP API
       else {
          $v_html_tips = ( "\r\n\r\n<!-- WatchCount.com WordPress Plugin: WCCDF Call Failure (cURL Absent + WP HTTP API Absent) -->\r\n\r\n" ) ;
-      } // endif: WP HTTP API not present
-   } // endif: cURL not installed
+      } // end-if: WP HTTP API not present
+   } // end-if: cURL not installed
 
 
    // -----------------------------------
@@ -1228,8 +1228,15 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
    $c_wccapi_anchor_maxcount = 25 ;   // hard max for number of anchor fields that can be passed to WCCAPI
    $c_wccapi_anchor_maxlenname = 20 ;   // max length of anchor field names
    $c_wccapi_anchor_maxlenval = 90 ;   // max length of anchor field values
-   $f_wccapi_diags = TRUE ;   // append WCCAPI call diagnostics details to HTML output?
+   $f_wccapi_diags = TRUE ;   // append WCCAPI call diagnostics details to HTML output ?
+   $f_wccapi_docall = TRUE ;   // enable WCCAPI calling ?
    $a_wccapi_unstored = array( 'wccwppi_isfeed' , 'wccwppi_posttags' , 'wccwppi_postid' , 'wccwppi_1post' , 'wccwppi_flags' , 'wccwppi_kwuser' , 'wccwppi_loc' , 'wccwppi_ver' , 'wccwppi_verwp' , 'wccwppi_verphp' , 'wccwppi_userip' , 'wccwppi_userref' , 'wccwppi_userbrow' , 'wccwppi_serverurl'  , 'wccwppi_unique' ) ;   // data fields unstored in WPDB
+
+
+   // -----------------------------------
+   // Define List of Invalid Server URL Text Phrases/Extensions  [entire Server URL Path-only will be searched]
+   // -----------------------------------
+   $a_wccapi_badurltext = array( 'ps_wp_denyhost.php' , '.js' , '.css' , '.ico' , '.gif' , '.jpg' , '.png' , '.txt' ) ;
 
 
    // -----------------------------------
@@ -1315,11 +1322,11 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
          $v_tag_list .= ( $value->name . ',' ) ;
       } // end: foreach-looper
       $v_tag_list = trim( (wccwppi_sanitize($v_tag_list)) , ' ,' ) ;
-   } // endif: tag list is present
+   } // end-if: tag list is present
 
    else {
       $v_tag_list = '' ;
-   } // endif: no tag list
+   } // end-if: no tag list
 
    $a_wccwppi_params['wccwppi_posttags'] = $v_tag_list ;
 
@@ -1362,11 +1369,11 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
 
       } // end: foreach-looper
 
-   } // endif: options retrieved from WPDB
+   } // end-if: options retrieved from WPDB
 
    else {
       $a_wccwppi_params['wccwppi_flags'] .= ( 'd_' ) ;
-   } // endif: options not in WPDB
+   } // end-if: options not in WPDB
 
 
    // -------------------------------
@@ -1379,7 +1386,7 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
 
          if ($counter >= $c_wccapi_anchor_maxcount) {
             break ;
-         } // endif: max number of anchor fields hit -> break loop
+         } // end-if: max number of anchor fields hit -> break loop
 
          else {
 
@@ -1392,62 +1399,56 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
                $a_wccwppi_params[$newindex] = ($value_cleaned) ;
                $counter++ ;
 
-            } // endif: $index_cleaned is valid
+            } // end-if: $index_cleaned is valid
 
-         } // endif: we are still under loop maxcount
+         } // end-if: we are still under loop maxcount
 
       } // end: foreach-looper
 
       $a_wccwppi_params['wccwppi_flags'] .= ( ($counter) ? ( 'a' . $counter . '_' ) : ('') ) ;
 
-   } // endif: anchor fields are present (and location=post) -> loop through 'em
+   } // end-if: anchor fields are present (and location=post) -> loop through 'em
+
+
+   // -------------------------------
+   // Abort WCCAPI Call if Server URL Path Contains Invalid Text Phrase/Extension
+   // -------------------------------
+   if ($a_wccwppi_params['wccwppi_serverurl']) {
+
+      $value = NULL ;
+      $value = parse_url( $a_wccwppi_params['wccwppi_serverurl'] , PHP_URL_PATH ) ;
+
+      if ($value) {
+
+         foreach ($a_wccapi_badurltext as $index) {
+
+            if ( stristr( $value , $index ) ) {
+
+               $f_wccapi_docall = FALSE ;
+               break ;
+
+            } // end-if: test if file extension/phrase exists in Server URL path
+
+         } // end: foreach looper
+
+      } // end-if: Server URL path is present
+
+   } // end-if: Server URL is present
 
 
    // -------------------------------
    // Make WCCAPI Call (via cURL or WP HTTP API)
    // -------------------------------
-   if (wccwppi_curly()) {
+   if ($f_wccapi_docall) {
 
-      $a_wccwppi_params['wccwppi_flags'] .= ('curly_') ;
-      $a_wccapi_call = wccwppi_cURLfriend($c_wccapi_url, $a_wccwppi_params, NULL, $c_wccapi_retries, $c_wccapi_timeout) ;
+      if (wccwppi_curly()) {
 
-      if ($a_wccapi_call[1] != 'n') {
-         $v_html_output = ( "\r\n\r\n<!-- WatchCount.com WordPress Plugin: WCCAPI Call Failure (cURL method) -->\r\n" ) ;
-      } // endif: some kind of WCCAPI Call problem
+         $a_wccwppi_params['wccwppi_flags'] .= ('curly_') ;
+         $a_wccapi_call = wccwppi_cURLfriend($c_wccapi_url, $a_wccwppi_params, NULL, $c_wccapi_retries, $c_wccapi_timeout) ;
 
-      else {
-
-         $v_html_output .= ( (isset($In_Widget['before_widget'])) ? ($In_Widget['before_widget']) : ('') ) ;
-
-         if ( (isset($In_Widget['before_title'])) && (isset($In_Widget['after_title'])) && ($a_wccwppi_params['wccwppi_sidwidlabel']) ) {
-            $v_html_output .= ( $In_Widget['before_title'] ) ;
-            $v_html_output .= ( $a_wccwppi_params['wccwppi_sidwidlabel'] ) ;
-            $v_html_output .= ( $In_Widget['after_title'] ) ;
-         } // endif: build sidebar widget header-label
-
-         $v_html_output .= ( $a_wccapi_call[0] ) ;
-
-         $v_html_output .= ( (isset($In_Widget['after_widget'])) ? ($In_Widget['after_widget']) : ('') ) ;
-
-      } // endif: WCCAPI Call seemed to complete OK
-
-   } // endif: make call via cURL
-
-   else {
-
-      if (wccwppi_hapi()) {
-
-         $a_wccwppi_params['wccwppi_flags'] .= ('hapi_') ;
-         $h_wccapi_wp_remote = (wp_remote_post( $c_wccapi_url , array( 'method'=>'POST' , 'timeout'=>$c_wccapi_timeout , 'body'=>$a_wccwppi_params , 'user-agent'=>('WatchCount.com WordPress Plugin client (WP HTTP API) version: ' . $a_wccwppi_params['wccwppi_ver']) ) )) ;
-         $a_wccapi_call[0] = (wp_remote_retrieve_body($h_wccapi_wp_remote)) ;
-         $a_wccapi_call[4] = (wp_remote_retrieve_response_code($h_wccapi_wp_remote)) ;
-         $a_wccapi_call[3] = (wp_remote_retrieve_response_message($h_wccapi_wp_remote)) ;
-         $a_wccapi_call[7] = TRUE ;
-         $a_wccapi_call[8] = '1' ;
-
-         if (is_wp_error($h_wccapi_wp_remote)) {
-            $v_html_output = ( "\r\n\r\n<!-- WatchCount.com WordPress Plugin: WCCAPI Call Failure (WP HTTP API method) -->\r\n" ) ;
-         } // endif: some kind of WCCAPI Call problem
+         if ($a_wccapi_call[1] != 'n') {
+            $v_html_output = ( "\r\n\r\n<!-- WatchCount.com WordPress Plugin: WCCAPI Call Failure (cURL method) -->\r\n" ) ;
+         } // end-if: some kind of WCCAPI Call problem
 
          else {
 
@@ -1457,21 +1458,61 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
                $v_html_output .= ( $In_Widget['before_title'] ) ;
                $v_html_output .= ( $a_wccwppi_params['wccwppi_sidwidlabel'] ) ;
                $v_html_output .= ( $In_Widget['after_title'] ) ;
-            } // endif: build sidebar widget header-label
+            } // end-if: build sidebar widget header-label
 
             $v_html_output .= ( $a_wccapi_call[0] ) ;
 
             $v_html_output .= ( (isset($In_Widget['after_widget'])) ? ($In_Widget['after_widget']) : ('') ) ;
 
-         } // endif: WCCAPI Call seemed to complete OK
+         } // end-if: WCCAPI Call seemed to complete OK
 
-      } // endif: make call via WP HTTP API
+      } // end-if: make call via cURL
 
       else {
-         $v_html_output = "\r\n\r\n<!-- WatchCount.com WordPress Plugin: WCCAPI Call Failure (cURL Absent + WP HTTP API Absent) -->\r\n" ;
-      } // endif: WP HTTP API not present
 
-   } // endif: cURL not installed
+         if (wccwppi_hapi()) {
+
+            $a_wccwppi_params['wccwppi_flags'] .= ('hapi_') ;
+            $h_wccapi_wp_remote = (wp_remote_post( $c_wccapi_url , array( 'method'=>'POST' , 'timeout'=>$c_wccapi_timeout , 'body'=>$a_wccwppi_params , 'user-agent'=>('WatchCount.com WordPress Plugin client (WP HTTP API) version: ' . $a_wccwppi_params['wccwppi_ver']) ) )) ;
+            $a_wccapi_call[0] = (wp_remote_retrieve_body($h_wccapi_wp_remote)) ;
+            $a_wccapi_call[4] = (wp_remote_retrieve_response_code($h_wccapi_wp_remote)) ;
+            $a_wccapi_call[3] = (wp_remote_retrieve_response_message($h_wccapi_wp_remote)) ;
+            $a_wccapi_call[7] = TRUE ;
+            $a_wccapi_call[8] = '1' ;
+
+            if (is_wp_error($h_wccapi_wp_remote)) {
+               $v_html_output = ( "\r\n\r\n<!-- WatchCount.com WordPress Plugin: WCCAPI Call Failure (WP HTTP API method) -->\r\n" ) ;
+            } // end-if: some kind of WCCAPI Call problem
+
+            else {
+
+               $v_html_output .= ( (isset($In_Widget['before_widget'])) ? ($In_Widget['before_widget']) : ('') ) ;
+
+               if ( (isset($In_Widget['before_title'])) && (isset($In_Widget['after_title'])) && ($a_wccwppi_params['wccwppi_sidwidlabel']) ) {
+                  $v_html_output .= ( $In_Widget['before_title'] ) ;
+                  $v_html_output .= ( $a_wccwppi_params['wccwppi_sidwidlabel'] ) ;
+                  $v_html_output .= ( $In_Widget['after_title'] ) ;
+               } // end-if: build sidebar widget header-label
+
+               $v_html_output .= ( $a_wccapi_call[0] ) ;
+
+               $v_html_output .= ( (isset($In_Widget['after_widget'])) ? ($In_Widget['after_widget']) : ('') ) ;
+
+            } // end-if: WCCAPI Call seemed to complete OK
+
+         } // end-if: make call via WP HTTP API
+
+         else {
+            $v_html_output = "\r\n\r\n<!-- WatchCount.com WordPress Plugin: WCCAPI Call Failure (cURL Absent + WP HTTP API Absent) -->\r\n" ;
+         } // end-if: WP HTTP API not present
+
+      } // end-if: cURL not installed
+
+   } // end-if: WCCAPI calling is enabled
+
+   else {
+      $v_html_output = "\r\n\r\n<!-- WatchCount.com WordPress Plugin: WCCAPI Call Attempts Disabled -->\r\n" ;
+   } // end-if: WCCAPI calling was disabled
 
 
    // -------------------------------
@@ -1485,6 +1526,7 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
       $v_html_output .= ( 'Endpoint : ' . $c_wccapi_url . "\r\n" ) ;
       $v_html_output .= ( 'curly? : ' . wccwppi_curly() . "\r\n" ) ;
       $v_html_output .= ( 'hapi? : ' . wccwppi_hapi() . "\r\n" ) ;
+      $v_html_output .= ( 'DoCall? : ' . $f_wccapi_docall . "\r\n" ) ;
       $v_html_output .= ( 'Blog IP : ' . $c_blogip . "\r\n" ) ;
       $v_html_output .= ( 'Timestamp / Unique Call ID : ' . $c_unique . "\r\n" ) ;
       $v_html_output .= ( 'Code : ' . ( (isset($a_wccapi_call[1])) ? ($a_wccapi_call[1]) : ('') ) . "\r\n" ) ;
@@ -1497,7 +1539,7 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
       $v_html_output .= ( 'Loops : ' . ( (isset($a_wccapi_call[8])) ? ($a_wccapi_call[8]) : ('') ) . "\r\n" ) ;
       $v_html_output .= ( "//-->\r\n" ) ;
       $v_html_output .= ( "<!-- (m2) -->\r\n\r\n" ) ;
-   } // endif: WCCAPI Call diags
+   } // end-if: WCCAPI Call diags
 
 
    // -------------------------------
