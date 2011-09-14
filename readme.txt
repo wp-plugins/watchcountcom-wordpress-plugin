@@ -1,7 +1,7 @@
 === WatchCount.com WordPress Plugin ===
 Contributors: WatchCount.com
 Requires at least: 2.6
-Tested up to: 3.2
+Tested up to: 3.2.1
 Stable tag: trunk
 Tags: WatchCount.com WordPress Plugin, WatchCount.com, WordPress, eBay, ePN, eBay Partner Network, watch count, free, no cost, auction, auctions, most popular, most watched, items, item, categories, category, bidding, eBay Pulse, eBay Daily Deal, eBay Daily Deals, The Big Deal, Wow des Tages, Wow Angebote, Wow Auktionen, shopping, seller, sellers, store, stores, shop, shops, post, posts, post tag, post tags, sidebar, widget, sidebar widget, ad, ads, advertising, advertise, tag, tags, shortcode, RSS, affiliate, affiliates, make money, money, income, commission, commissions, content, links, admin, automatic, sales, plugin, international, wordpres, worldpress, WCCWPPI, WatchCount, watch count, WCC WP Plugin, SEO
 
@@ -34,7 +34,7 @@ In addition to the features and services presented above, the WCCWPPI includes s
 * **embedded search box** for visitor-selected search words: have the plugin display refresh itself with updated results, or send the visitor right to eBay
 * strong **international** eBay site support, including all 4 [eBay Daily Deal](http://www.WatchCount.com/go/?link=wp_i_edd "eBay Daily Deals") country-sites
 * plugin displays with **localized language** (selected by blogger)
-* a variety of **backgrounds/skins** to choose from (with more being added), or select any background color instead
+* a variety of **backgrounds/skins** to choose from, or select any background color, or choose a streamlined transparent skinless background instead
 * skip keywords and display the **Most Watched Items** across an entire eBay site
 * display a customizable **informational message** within the plugin to help your readers
 * comprehensive configuration screen, including **live preview**
@@ -47,7 +47,7 @@ In addition to the features and services presented above, the WCCWPPI includes s
 
 * Please don't hesitate to read or post **comments and questions** on our [mini-forum](http://www.WatchCount.com/go/?link=wp_gcwccwppi "Get support on our 'mini-forum'...") (Global Conversations page) –- login to post with an account you probably already have.
 * If you use our plugin, please be sure to join our [WCCWPPI Notification Alerts list](http://www.WatchCount.com/go/?link=wp_i_pi_alerts "Get notified about important WCCWPPI information...") so we can email you about **critical updates** and information. (Don't worry - we're not spammers and we hate junk mail as much as you do.)
-* By default, the WCCWPPI displays a small WatchCount.com logo/tagline/backlink -- but you can **easily disable** this on the Admin/Settings page. If you had entered an ePN CampID on the Settings page, your ePN tracking links will display throughout the plugin 100% of the time if our backlink is enabled, or 80% of the time if you opt to suppress it.
+* By default, the WCCWPPI displays a small WatchCount.com tagline/logo/link -- but you can **easily disable** this on the Admin/Settings page. If you had entered an ePN CampID on the Settings page, your ePN tracking links will display throughout the plugin 100% of the time if our tagline/link is enabled, or 80% of the time if you opt to suppress it.
 * Comprehensive information about this plugin (including FAQ, live demo blog, screenshots, and documentation) is located [on our website](http://www.WatchCount.com/go/?link=wp_i_pi "WCCWPPI information at WatchCount.com...").
 * **=> Already using** our plugin? Please consider taking a quick moment to rate it -- see the right sidebar up above (thanks so much!).
 
