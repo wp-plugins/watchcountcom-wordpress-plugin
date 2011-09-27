@@ -2,14 +2,14 @@
 /*
 Plugin Name: WatchCount.com WordPress Plugin
 Plugin URI: http://www.WatchCount.com/ebay-wordpress-plugin.php
-Version: 1.1.4
+Version: 1.1.5
 Author: WatchCount.com
 Author URI: http://www.WatchCount.com/
 Description: The WatchCount.com WordPress Plugin (WCCWPPI) displays Most Popular/Watched eBay items (or a seller&#39;s items) in real-time, as a blog sidebar widget or within individual blog posts (or both). <strong>-- New Install? Get Going in 4 Easy Steps --</strong> <strong>(1)</strong> Click the 'Activate' link to the left. <strong>(2)</strong> Join our <a href="http://www.WatchCount.com/go/?link=wp_i_pi_alerts" title="Get notified about important WCCWPPI information..." target="_blank">WCCWPPI Notification Alerts list</a> so we can email you about critical upgrades/info. <strong>(3)</strong> Find your WordPress 'Widgets' page and drag the eBay Items widget into your sidebar. <strong>(4)</strong> Embed the WCCWPPI within your blog posts: just include <strong>[eBay]</strong> as you type, or get more specific: <strong>[eBay keywords="free shipping"]</strong> . . . Full <a href="http://www.WatchCount.com/go/?link=wp_i_pi_qs" title="WCCWPPI Quick Start Instructions..." target="_blank">Quick Start Instructions</a> are availble on our <a href="http://www.WatchCount.com/go/?link=wp_i_pi" title="Information about WCCWPPI..." target="_blank">WCCWPPI Information page</a>, and community support is available on our <a href="http://www.WatchCount.com/go/?link=wp_gcwccwppi" title="WCCWPPI 'mini-forum'..." target="_blank">Global Conversations page</a>. (If needed, you can <a href="http://www.WatchCount.com/go/?link=wp_i_contact" title="Contact WatchCount.com..." target="_blank">contact us directly</a>.)
 */
 
 /**
- * Copyright © 2009-2011 WatchCount.com - All Rights Reserved  [ contact: http://www.WatchCount.com/contact.php ]
+ * Copyright © 2009-2012 WatchCount.com - All Rights Reserved  [ contact: http://www.WatchCount.com/contact.php ]
  *
  * This program is free software: you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -51,7 +51,7 @@ Description: The WatchCount.com WordPress Plugin (WCCWPPI) displays Most Popular
  * Global Constants for WCCWPPI Functions
  * ---------------------------------------------------------------
  */
-define( 'WCCWPPI_CLIENT_VERSION' , '1.1.4' , FALSE ) ;   // current version of this WatchCount.com WordPress Plugin client
+define( 'WCCWPPI_CLIENT_VERSION' , '1.1.5' , FALSE ) ;   // current version of this WatchCount.com WordPress Plugin client
 define( 'WCCWPPI_CALLBACK_PRIORITY' , 6 , FALSE ) ;   // priority level to use for wccwppi callback functions
 define( 'WCCWPPI_OPTION_NAME' , 'wccwppi_option_params' , FALSE ) ;   // option name for WPDB storage that contains array of WCCWPPI settings/parameters
 define( 'WCCWPPI_ADMINPAGE_HANDLE' , 'wccwppi-settings' , FALSE ) ;   // internal handle/name for admin-options page
@@ -421,6 +421,7 @@ function wccwppi_adminpage_display () {
                                  'MY'=>'eBay.com.my (MY)' ,
                                  'IN'=>'eBay.in (IN)' ,
                                  'SG'=>'eBay.com.sg (SG)' ,
+                                 'PH'=>'eBay.ph (PH)' ,
                                  'Motors'=>'motors.eBay.com (Motors) [US]' ) ;
 
 
@@ -429,7 +430,7 @@ function wccwppi_adminpage_display () {
    // -----------------------------------
    // note: these are stored in WPDB
    // -----------------------------------
-   $a_wccwppi_params_checks = array( 'wccwppi_titlehide' , 'wccwppi_titleund' , 'wccwppi_titledocolbg' , 'wccwppi_kwnottags' , 'wccwppi_rssdisable' ) ;   // data fields that are checkboxes
+   $a_wccwppi_params_checks = array( 'wccwppi_titlehide' , 'wccwppi_titleund' , 'wccwppi_titledocolbg' , 'wccwppi_kwnottags' , 'wccwppi_rssdisable' , 'wccwppi_usegeneblink' ) ;   // data fields that are checkboxes
 
    $a_wccwppi_option_params = array( 'wccwppi_cc'=>'US' ,
                                      'wccwppi_ccedd'=>'0' ,
@@ -461,7 +462,8 @@ function wccwppi_adminpage_display () {
                                      'wccwppi_sort'=>'EndTimeSoonest' ,
                                      'wccwppi_wcclogoy'=>'' ,
                                      'wccwppi_sidwidlabel'=>'' ,
-                                     'wccwppi_fc'=>''  ) ;
+                                     'wccwppi_fc'=>'' ,
+                                     'wccwppi_usegeneblink'=>''  ) ;
 
 
    // -----------------------------------
@@ -650,7 +652,7 @@ function wccwppi_adminpage_display () {
    $v_html_output .= ( "</td>\r\n" ) ;
    $v_html_output .= ( "</tr>\r\n" ) ;
    $v_html_output .= ( "<tr><td class=\"wccwppi-controls wccwppi-controls-text\" colspan=\"2\">\r\n" ) ;
-   $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">Select the eBay country-site to display items from (note: US eBay Motors is a distinct site). Don't see your country listed? <a href=\"http://www.WatchCount.com/go/?link=wp_i_contact\" class=\"wccwppi-links\" target=\"_blank\" title=\"Email WatchCount.com...\">Submit a support request</a> and we'll prioritize its inclusion in the next WCCWPPI release.</p>\r\n" ) ;
+   $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">Select the eBay country-site to display items from (note: US eBay Motors is a distinct site).</p>\r\n" ) ;
    $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">When selecting global/default keywords, you can comma-separate multiple terms. You can also use <a href=\"http://www.WatchCount.com/go/?link=wp_i_pi_faq_syntax\" class=\"wccwppi-links\" target=\"_blank\" title=\"About eBay's advanced search syntax...\">advanced eBay search syntax</a> for more options. (To display 1 specific eBay item, simply enter its listing number into the Keywords box.) Categories to restrict your search results to should be entered as 1 or more comma-separated category numbers. To see category number lists, go to our <a href=\"http://www.WatchCount.com/go/?link=wp_i_advsearch\" class=\"wccwppi-links\" target=\"_blank\" title=\"WatchCount.com Advanced Search page...\">advanced search page</a>, select your eBay country-site, then click the 'eBay category numbers' link.</p>\r\n" ) ;
    $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">You can also showcase <a href=\"http://www.WatchCount.com/go/?link=wp_i_edd\" class=\"wccwppi-links\" target=\"_blank\" title=\"eBay Daily Deals...\">eBay Daily Deals</a> &#8212; specially discounted offers that eBay hand-picks from trusted sellers each day. These Daily Deals sell fast, are always for a fixed-price, and are offered with free shipping/delivery.</p>\r\n" ) ;
    $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">You can specify that your keyword selections maintain priority over post tags (otherwise the tags you choose for your blog posts determine what's displayed in the WCCWPPI).</p>\r\n" ) ;
@@ -712,7 +714,7 @@ function wccwppi_adminpage_display () {
    $v_html_output .= ( "</td>\r\n" ) ;
    $v_html_output .= ( "</tr>\r\n" ) ;
    $v_html_output .= ( "<tr><td class=\"wccwppi-controls wccwppi-controls-text\" colspan=\"2\">\r\n" ) ;
-   $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">Choose a skin/background for the plugin display, or leave the default skin. If you choose 'no skin', you can specify a background color (above) and more search results displayed ('Max Results' field down below).</p>\r\n" ) ;
+   $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">Choose a skin/background for the plugin display, or leave the default skin. If you choose 'no skin', you can optionally specify a background color (above) and more search results displayed ('Max Results' field down below).</p>\r\n" ) ;
    $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">'Inline Search' shows a small search box so the visitor can enter their own keywords. You can have results re-displayed within the plugin, or send the visitor directly to eBay. You can also hide the search box and display a message instead.</p>\r\n" ) ;
    $v_html_output .= ( "</td></tr>\r\n" ) ;
    $v_html_output .= ( "</table>\r\n" ) ;
@@ -754,8 +756,8 @@ function wccwppi_adminpage_display () {
    $v_html_output .= ( "</tr>\r\n" ) ;
    $v_html_output .= ( "<tr><td class=\"wccwppi-controls wccwppi-controls-text\" colspan=\"2\">\r\n" ) ;
    $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">If you have an ePN account and a blog on your own domain, you can potentially generate commissions when your visitors click through to eBay then make purchases. Enter your newly-generated 10-digit ePN Campaign ID code above.</p>\r\n" ) ;
-   $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">If you entered your ePN Campaign ID above, you can opt between 2 impression sharing levels whereby your eBay/ePN affiliate links will be shown in a percentage of plugin impressions/displays (random rotation). 'High/100%' puts your affiliate links in the plugin all the time, but displays a small WatchCount.com logo/backlink. 'Low/80%' shares impressions with us (we get 20%), and so we hide the promo tagline/backlink.</p>\r\n" ) ;
-   $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">If you left the ePN CampID field above blank, you can still control the placement or suppression of the WatchCount.com logo/tagline/backlink.</p>\r\n" ) ;
+   $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">If you entered your ePN Campaign ID above, you can opt between 2 impression sharing levels whereby your eBay/ePN affiliate links will be shown in a percentage of plugin impressions/displays (random rotation). 'High/100%' puts your affiliate links in the plugin all the time, but displays a small WatchCount.com logo/link at the bottom. 'Low/80%' shares impressions with us (we get 20%), and so we hide the promo tagline/link.</p>\r\n" ) ;
+   $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">If you left the ePN CampID field above blank, you can still control the placement or suppression of the WatchCount.com logo/tagline/link.</p>\r\n" ) ;
    $v_html_output .= ( "</td></tr>\r\n" ) ;
    $v_html_output .= ( "</table>\r\n" ) ;
    $v_html_output .= ( "<!-- End: WCCWPPI Admin/Settings Page - Control Block (ePN) -->\r\n\r\n" ) ;
@@ -877,6 +879,12 @@ function wccwppi_adminpage_display () {
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-right\">RSS/Feeds: Disable Entire WCCWPPI Display</td>\r\n" ) ;
    $v_html_output .= ( "</tr>\r\n" ) ;
    $v_html_output .= ( "<tr>\r\n" ) ;
+   $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-left\">\r\n" ) ;
+   $v_html_output .= ( "   <input type=\"checkbox\" class=\"wccwppi-settings-checkbox\" name=\"wccwppi_usegeneblink\" id=\"wccwppi_usegeneblink\" value=\"1\" " . ( ($a_wccwppi_option_params['wccwppi_usegeneblink']) ? ("checked=\"checked\"") : ('') ) . " title=\"Checked: Display a generic eBay link if your query parameters lead to empty search results.\" tabindex=\"32\" />\r\n" ) ;
+   $v_html_output .= ( "</td>\r\n" ) ;
+   $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-right\">Empty Results Display Generic eBay Link</td>\r\n" ) ;
+   $v_html_output .= ( "</tr>\r\n" ) ;
+   $v_html_output .= ( "<tr>\r\n" ) ;
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-left\">Admin/Beta Use:</td>\r\n" ) ;
    $v_html_output .= ( "<td class=\"wccwppi-controls wccwppi-controls-right\">\r\n" ) ;
    $v_html_output .= ( "   <input type=\"text\" class=\"wccwppi-settings-text\" name=\"wccwppi_fc\" id=\"wccwppi_fc\" value=\"" . htmlentities( $a_wccwppi_option_params['wccwppi_fc'] , ENT_QUOTES , 'UTF-8' ) . "\" maxlength=\"30\" size=\"32\" title=\"(for admin use only)\" />\r\n" ) ;
@@ -886,6 +894,7 @@ function wccwppi_adminpage_display () {
    $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">You can specify the search button text, or if you hid the Inline Search box you can display a custom information message instead.</p>\r\n" ) ;
    $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">'Default Alignment' places in-post WCCWPPI displays to the left or right. 'Max Results' limits the number of search results displayed. You can also specify the divider color that separates items.</p>\r\n" ) ;
    $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">To comply with ePN ToS, we disable all eBay affiliate links inside WCCWPPI displays embedded within your blog's RSS feeds. You can also opt to take this a step further and disable the entire WCCWPPI display within feeds.</p>\r\n" ) ;
+   $v_html_output .= ( "<p class=\"wccwppi-p wccwppi-text-style1\">If your query parameters lead to empty search results, you can opt to display a generic link to eBay instead. (Otherwise, a polite promo link to our website may appear as filler.)</p>\r\n" ) ;
    $v_html_output .= ( "</td></tr>\r\n" ) ;
    $v_html_output .= ( "</table>\r\n" ) ;
    $v_html_output .= ( "<!-- End: WCCWPPI Admin/Settings Page - Control Block (Other) -->\r\n\r\n" ) ;
@@ -1236,7 +1245,7 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
    // -----------------------------------
    // Define List of Invalid Server URL Text Phrases/Extensions  [entire Server URL Path-only will be searched]
    // -----------------------------------
-   $a_wccapi_badurltext = array( 'ps_wp_denyhost.php' , '.js' , '.css' , '.ico' , '.gif' , '.jpg' , '.png' , '.txt' ) ;
+   $a_wccapi_badurltext = array( 'ps_wp_denyhost.php' , '.js' , '.css' , '.ico' , '.gif' , '.jpg' , '.jpeg' , '.png' , '.swf' , '.txt' ) ;
 
 
    // -----------------------------------
@@ -1288,7 +1297,8 @@ function wccwppi_execute ( $In_Loc='' , $In_Widget=array() , $In_ShortcodeAtts=a
                                'wccwppi_sort'=>'' ,
                                'wccwppi_wcclogoy'=>'' ,
                                'wccwppi_sidwidlabel'=>'' ,
-                               'wccwppi_fc'=>''  ) ;
+                               'wccwppi_fc'=>'' ,
+                               'wccwppi_usegeneblink'=>''   ) ;
 
 
    // -----------------------------------
