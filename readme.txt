@@ -15,7 +15,7 @@ Most Popular eBay items displayed have been voted on by both shoppers and seller
 
 You can select keyword phrases and eBay categories as the basis of the displayed items. Even better, you can specify your keywords globally (for your entire blog), directly **within your posts** as you type them (via *anchor tags* such as `[eBay "Fender Mustang"]`), **automatically** via the post tags that WordPress already requests of you in each post –- or allow your readers to enter their own terms in the embedded search box.
 
-This plugin is created and powered by WatchCount.com, an [eBay Compatible Application](http://www.WatchCount.com/go/?link=wp_i_cac "WatchCount.com is an eBay Compatible Application.") and recipient of a [2009 eBay Star Developer Award](http://www.WatchCount.com/go/?link=wp_i_award "WatchCount.com was a recipient of a 2009 eBay Star Developer Award.").
+This plugin is created and powered by [WatchCount.com](http://www.WatchCount.com/ "WatchCount.com - Most Watched eBay Items/Auctions"), an [eBay Compatible Application](http://www.WatchCount.com/go/?link=wp_i_cac "WatchCount.com is an eBay Compatible Application.") and recipient of a [2009 eBay Star Developer Award](http://www.WatchCount.com/go/?link=wp_i_award "WatchCount.com was a recipient of a 2009 eBay Star Developer Award.").
 
 (Click the *Screenshots* link up above for sample images as well as a live demo blog of the WCCWPPI.)
 
