@@ -32,7 +32,7 @@ If you have an **ePN** account and a blog on your own domain, you can potentiall
 In addition to the features and services presented above, the WCCWPPI includes some other handy things:
 
 * **embedded search box** for visitor-selected search words: have the plugin display refresh itself with updated results, or send the visitor right to eBay
-* strong **international** eBay site support, including all 4 [eBay Daily Deal](http://www.WatchCount.com/go/?link=wp_i_edd "eBay Daily Deals") country-sites
+* strong **international** eBay site support, including the 4 most popular [eBay Daily Deal](http://www.WatchCount.com/go/?link=wp_i_edd "eBay Daily Deals") country-sites
 * plugin displays with **localized language** (selected by blogger)
 * a variety of **backgrounds/skins** to choose from, or select any background color, or choose a streamlined transparent skinless background instead
 * skip keywords and display the **Most Watched Items** across an entire eBay site
@@ -45,9 +45,8 @@ In addition to the features and services presented above, the WCCWPPI includes s
 
 = What else should I know about the WCCWPPI? =
 
-* Please don't hesitate to read or post **comments and questions** on our [mini-forum](http://www.WatchCount.com/go/?link=wp_gcwccwppi "Get support on our 'mini-forum'...") (Global Conversations page) –- login to post with an account you probably already have.
 * If you use our plugin, please be sure to join our [WCCWPPI Notification Alerts list](http://www.WatchCount.com/go/?link=wp_i_pi_alerts "Get notified about important WCCWPPI information...") so we can email you about **critical updates** and information. (Don't worry - we're not spammers and we hate junk mail as much as you do.)
-* By default, the WCCWPPI displays a small WatchCount.com tagline/logo/link -- but you can **easily disable** this on the Admin/Settings page. If you had entered an ePN CampID on the Settings page, your ePN tracking links will display throughout the plugin 100% of the time if our tagline/link is enabled, or 80% of the time if you opt to suppress it.
+* By default, the WCCWPPI displays a small WatchCount.com tagline/logo/link -- but you can **easily disable** this on the Admin/Settings page. (If you had entered an ePN CampID on the Settings page, your ePN tracking links will display throughout the plugin 100% of the time if our tagline/link is enabled, or 80% of the time if you opt to suppress it.)
 * Comprehensive information about this plugin (including FAQ, live demo blog, screenshots, and documentation) is located [on our website](http://www.WatchCount.com/go/?link=wp_i_pi "WCCWPPI information at WatchCount.com...").
 * **=> Already using** our plugin? Please consider taking a quick moment to rate it -- see the right sidebar up above (thanks so much!).
 
@@ -83,7 +82,7 @@ Once installed, the WCCWPPI Admin/Settings page contains detailed configuration 
 
 [On our website](http://www.WatchCount.com/go/?link=wp_i_pi "WCCWPPI information at WatchCount.com...") you'll find comprehensive information about this plugin, including [Quick Start Instructions](http://www.WatchCount.com/go/?link=wp_i_pi_qs "WCCWPPI Quick Start Instructions"), an extensive FAQ, and documentation.
 
-You may also wish to visit our [mini-forum](http://www.WatchCount.com/go/?link=wp_gcwccwppi "Get support on our 'mini-forum'...") (Global Conversations page) with your questions and comments –- just login to post with a Google / Yahoo! / Twitter / AIM / OpenID account you already have.
+You may also [contact us directly](http://www.WatchCount.com/go/?link=wp_i_contact "Contact WatchCount.com") with your questions and comments.
 
 == Changelog ==
 
