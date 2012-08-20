@@ -1,15 +1,15 @@
 === WatchCount.com WordPress Plugin ===
 Contributors: WatchCount.com
 Requires at least: 2.6
-Tested up to: 3.4
+Tested up to: 3.4.1
 Stable tag: trunk
-Tags: WatchCount.com WordPress Plugin, WatchCount.com, WordPress, eBay, ePN, eBay Partner Network, watch count, free, no cost, auction, auctions, most popular, most watched, items, item, categories, category, bidding, eBay Pulse, eBay Daily Deal, eBay Daily Deals, The Big Deal, Wow des Tages, Wow Angebote, Wow Auktionen, shopping, seller, sellers, store, stores, shop, shops, post, posts, post tag, post tags, sidebar, widget, sidebar widget, ad, ads, advertising, advertise, tag, tags, shortcode, RSS, affiliate, affiliates, make money, money, income, commission, commissions, content, links, admin, automatic, sales, plugin, international, wordpres, worldpress, WCCWPPI, WatchCount, watch count, WCC WP Plugin, SEO
+Tags: WatchCount.com WordPress Plugin, WatchCount.com, WordPress, eBay, ePN, eBay Partner Network, watch count, free, no cost, auction, auctions, most popular, most watched, items, item, categories, category, bidding, eBay Pulse, eBay Daily Deal, eBay Daily Deals, Daily Deal, Daily Deals, The Big Deal, Wow des Tages, Wow Angebote, Wow Auktionen, shopping, seller, sellers, store, stores, shop, shops, post, posts, post tag, post tags, sidebar, widget, sidebar widget, ad, ads, advertising, advertise, tag, tags, shortcode, RSS, affiliate, affiliates, make money, money, income, commission, commissions, content, links, admin, automatic, sales, plugin, international, wordpres, worldpress, WCCWPPI, WatchCount, watch count, WCC WP Plugin, SEO
 
 The WatchCount.com WP Plugin is a free eBay WP plugin that shows Most Popular (or a seller's) eBay items in a blog's sidebar or posts.
 
 == Description ==
 
-The WatchCount.com WordPress Plugin (WCCWPPI) is a **free** eBay WordPress plugin that displays Most Popular eBay items and auctions in real-time -- in your blog's sidebar (a *WordPress Widget*) and/or within individual blog posts. You can also display eBay items from any specific **seller**.
+The WatchCount.com WordPress Plugin (WCCWPPI) is a **free** eBay WordPress plugin that displays Most Popular eBay items and auctions in real-time -- in your blog's sidebar (a *WordPress Widget*) and/or within individual blog posts. You can also display eBay items from any specific **seller**, or the **eBay Daily Deals**.
 
 Most Popular eBay items displayed have been voted on by both shoppers and sellers and ranked accordingly: compared to the millions of eBay listings active at any given moment, our plugin features ones that reflect an actual, **cumulative interest** by registered eBay users! Your blog's visitors can click through to these compelling items listed live on eBay.
 
@@ -89,4 +89,10 @@ You may also [contact us directly](http://www.WatchCount.com/go/?link=wp_i_conta
 = Changelog =
 
 Version history is located [here on our website](http://www.WatchCount.com/go/?link=wp_i_pi_docs_vers "WCCWPPI Version History") (towards the bottom of the page).
+
+== Support ==
+
+= Support =
+
+Please click the **Installation** link to the left for support information.
 
